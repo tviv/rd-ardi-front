@@ -22,7 +22,6 @@ class DailyRevenueFilter extends FilterHandler {
 
         let WrappedSelect = this.WrappedSelect;
 
-        console.dir(model.filters.periodFilter);
         return (
             <FilterContainer>
                 <Row>
