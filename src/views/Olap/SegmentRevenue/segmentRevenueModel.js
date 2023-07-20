@@ -78,7 +78,7 @@ let segmentRevenueModel = Object.assign(Object.create(olapModelView), {
         let forNegativVal = ["Отклонение выполнение по ВМ от выполнение по ТО", "Отклонение УВМ от плана", "Отклонение от плана Ср. ст-ть артикула", "Отклонение от плана Кол артикулов на 1 клиента"];
         let forNegativeValIfPos = ["Отклонение от плана Коэф оборачиваемости"];
         let kpi1 = ["Выполнение план сегмент Выручка без НДС", "Выполнение план сегмент Маржа без НДС", "Выполнение плана Кол клиентов", "Выполнение плана Кол артикулов"];
-
+        let kpi2 = ["Доля Выручки без НДС"]
         if (cell.headerCell) {
             res = cell.headerCell.background;
 
@@ -89,6 +89,8 @@ let segmentRevenueModel = Object.assign(Object.create(olapModelView), {
             } else if (kpi1.includes(cell.headerCell.label)) {
                 if (cell.Value > 1.03) return '#BEFCBA';
                 if (cell.Value < 0.95) return '#FCBFBF';
+            } else if (kpi2.includes(cell.headerCell.label)) {
+                if (cell.Value > 0.01) return '#BEFCBA';
             }
         }
 
