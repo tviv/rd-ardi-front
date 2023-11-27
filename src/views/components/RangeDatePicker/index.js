@@ -101,12 +101,13 @@ class RangeDatePicker extends React.Component {
                 alwaysShowCalendars
                 onApply={this.onDatesChange}
             >
-                <Input
+                <input
                     id="formControlsTextB"
                     type="text"
                     label="Text"
                     placeholder="Enter text"
-                    disabled={true}
+                    className="form-control"
+                    readOnly={true}
                     style={{ cursor: 'pointer', backgroundColor: 'white' }}
                     value={value}
                 />
