@@ -26,7 +26,7 @@ function getJsonFromOlapApi(relPath, body, username, password) {
         setTimeout(function() {
             let authString =
                 username && password
-                    ? 'Basic ' + btoa(`${username}:${password}`)
+                    ? 'Basic ' + btoa(unescape(encodeURIComponent(`${username}:${password}`)))
                     : `Bearer ${localStorage.getItem('token')}`;
             fetch('' + relPath, {
                 accept: 'application/json',
