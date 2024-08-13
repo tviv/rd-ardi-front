@@ -27,7 +27,7 @@ class DailyRevenueFilter extends FilterHandler {
                 <Row>
                     <Col xs="12" lg="3">
                         <FormGroup>
-                            <Label htmlFor="mounth-select">Период</Label>
+                            <Label>Период</Label>
                             <RangeDatePicker
                                 startDate={moment(
                                     model.filters.periodFilter.date
@@ -43,7 +43,7 @@ class DailyRevenueFilter extends FilterHandler {
                     {/*<FormGroup>*/}
                     {/*<Label htmlFor="mounth-select">Месяцы</Label>*/}
                     {/*<WrappedSelect*/}
-                    {/*name="mounth-select"*/}
+                    {/*name="month-select"*/}
                     {/*hierarchyName="[Даты].[Месяцы]"*/}
                     {/*maxLevel="2"*/}
                     {/*disableToLevel={1}*/}
