@@ -2,11 +2,11 @@
 
 import React, { Component } from 'react';
 
-import model from './segmentRevenueModel';
-import SegmentRevenueTableContainer from './SegmentRevenueTableContainer';
-import SegmentRevenueFilter from './SegmentRevenueFilter';
+import model from './segmentYearToYearModel';
+import SegmentYearToYearTableContainer from './SegmentYearToYearTableContainer';
+import SegmentFilter from '../SegmentRevenue/SegmentRevenueFilter';
 
-class SegmentRevenueTableView extends Component {
+class SegmentYearToYearTableView extends Component {
     constructor(props) {
         super(props);
 
@@ -20,6 +20,7 @@ class SegmentRevenueTableView extends Component {
 
     handleChangeFilter = filterMap => {
         if (filterMap) {
+            console.log('filter', filterMap, model)
             model.filters.filterArray =
                 filterMap instanceof Map
                     ? Array.from(filterMap.entries())
@@ -38,14 +39,14 @@ class SegmentRevenueTableView extends Component {
     render() {
         return (
             <div>
-                <SegmentRevenueFilter
+                <SegmentFilter
                     model={model}
                     onChange={this.handleChangeFilter}
                     defaultValues={this.defaultValues}
                     style={{ position: 'relative', zIndex: 300 }}
                     stopFilterSelection={this.state.stopFilterSelection}
                 />
-                <SegmentRevenueTableContainer
+                <SegmentYearToYearTableContainer
                     filters={this.state.filters}
                     onCellClick={this.handleCellClick}
                     cellId={this.state.cellId}
@@ -56,4 +57,4 @@ class SegmentRevenueTableView extends Component {
     }
 }
 
-export default SegmentRevenueTableView;
+export default SegmentYearToYearTableView;

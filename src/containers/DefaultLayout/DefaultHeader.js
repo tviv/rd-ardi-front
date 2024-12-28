@@ -69,6 +69,11 @@ class DefaultHeader extends Component {
                             Выручка по сегментам
                         </NavLink>
                     </NavItem>
+                    <NavItem className="px-3">
+                        <NavLink to="/olap/segment-year-to-year" className="nav-link">
+                            Выручка год к году
+                        </NavLink>
+                    </NavItem>
                 </Nav>
 
                 <Nav className="ml-auto" navbar>

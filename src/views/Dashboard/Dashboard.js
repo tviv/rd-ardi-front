@@ -121,6 +121,33 @@ class Dashboard extends Component {
                             </CardBody>
                         </Card>
 
+                        <Card>
+                            <CardBody>
+                                <Jumbotron>
+                                    <h1 className="display-4">
+                                        Выручка по сегментам год к году
+                                    </h1>
+                                    <p className="lead">
+                                        В отчете представлены
+                                        плановые и фактические показатели продаж в разрезе сегментов и прошлого года.
+                                    </p>
+                                    <hr className="my-2" />
+                                    <p>
+                                        Отчет предназначен для служб,
+                                        ответственных за выполнение основных
+                                        показателей по магазинам.
+                                    </p>
+                                    <p className="lead">
+                                        <Link
+                                            to="/olap/segment-year-to-year"
+                                            className="btn btn-primary"
+                                        >
+                                            Открыть
+                                        </Link>
+                                    </p>
+                                </Jumbotron>
+                            </CardBody>
+                        </Card>
                     </CardDeck>
                 </Row>
             </div>

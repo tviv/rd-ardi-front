@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { FormGroup, Label, Col, Row } from 'reactstrap';
 
-import model from './segmentRevenueModel';
 import { AppSwitch } from '@coreui/react';
 import FilterHandler from '../OlapComponents/FilterHandler';
 import FilterContainer from '../OlapComponents/FilterContainer';
@@ -10,26 +9,25 @@ import moment from 'moment';
 
 class SegmentRevenueFilter extends FilterHandler {
     handleDateChange = (startDate, endDate) => {
-        model.filters.periodFilter.date = startDate;
-        model.filters.periodFilter.endDate = endDate;
+        this.props.model.filters.periodFilter.date = startDate;
+        this.props.model.filters.periodFilter.endDate = endDate;
         if (this.props.onChange) {
             this.props.onChange();
         }
     };
 
     handleSegment310Change = value => {
-        model.filters.withSegment310 = value;
+        this.props.model.filters.withSegment310 = value;
         if (this.props.onChange) {
             this.props.onChange();
         }
     };
 
     render() {
-        const { defaultValues } = this.props;
+        const { defaultValues, model } = this.props;
 
         let WrappedSelect = this.WrappedSelect;
 
-        console.dir(model.filters.periodFilter);
         return (
             <FilterContainer>
                 <Row>
