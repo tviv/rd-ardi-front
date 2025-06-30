@@ -32,6 +32,11 @@ const OlapSegmentYearToYear = Loadable({
     loading: Loading,
 });
 
+const OlapChecklist = Loadable({
+    loader: () => import('./views/Olap/Checklist'),
+    loading: Loading,
+});
+
 const OlapSettings = Loadable({
     loader: () => import('./views/Olap/Settings'),
     loading: Loading,
@@ -79,6 +84,11 @@ const routes = [
         path: '/olap/segment-year-to-year',
         name: 'Выручка по сегментам год к году',
         component: OlapSegmentYearToYear,
+    },
+    {
+        path: '/olap/checklist',
+        name: 'Чек-листы',
+        component: OlapChecklist,
     },
     { path: '/olap/settings', name: 'Настройки', component: OlapSettings },
     { path: '/sitehealth', name: 'Настройки', component: OlapActualtiyToolPage },
