@@ -1,20 +1,11 @@
 import olapModelView from '../OlapComponents/olapModelView';
 import moment from 'moment';
 
-function addDays(date, days) {
-    var result = new Date(date);
-    result.setDate(result.getDate() + days);
-    return result;
-}
-
 let DAY_COLUMN = 0;
-let COMMENT_COUNT_COLUMN = 3;
-
-let STATE_START = 3;
 
 let checklistModel = Object.assign(Object.create(olapModelView), {
     MAIN_URL: '/api/olap/checklist',
-    HIDDEN_COLS: [1, 3],
+    HIDDEN_COLS: [1],
     FROZEN_COLUMN_COUNT: 2,
     data: {},
 
@@ -60,9 +51,9 @@ let checklistModel = Object.assign(Object.create(olapModelView), {
             cell.headerCell &&
             ['Соответствие '].includes(cell.headerCell.label)
         ) {
-            if (cell.Value == 'Соответствует') return '#BEFCBA';
-            if (cell.Value == 'Не соответствует') return '#FCBFBF';
-             return '#FCFCBA';
+            if (cell.Value === 'Соответствует') return '#BEFCBA';
+            if (cell.Value === 'Не соответствует') return '#FCBFBF';
+            return '#FCFCBA';
         }
 
         return res;
@@ -84,7 +75,6 @@ let checklistModel = Object.assign(Object.create(olapModelView), {
             })
         );
     },
-
 });
 
 export default checklistModel;
