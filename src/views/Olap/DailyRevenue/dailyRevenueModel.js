@@ -11,10 +11,12 @@ let DAY_COLUMN = 0;
 let COMMENT_COUNT_COLUMN = 3;
 
 let ORDER_COLUMN_START = 21;
-let NOCASH_COLUMN_START = ORDER_COLUMN_START + 7;
+let NOCASH_COLUMN_START = ORDER_COLUMN_START + 8;
 let NIGHT_TIME_COLUMN_START = NOCASH_COLUMN_START + 6;
 let CERTIFICATE_COLUMN_START = NIGHT_TIME_COLUMN_START + 4;
-let COMMENT_COLUMN_START = CERTIFICATE_COLUMN_START + 8;
+let SBER_COLUMN_START = CERTIFICATE_COLUMN_START + 2;
+let ECOM_COLUMN_START = SBER_COLUMN_START + 6;
+let COMMENT_COLUMN_START = ECOM_COLUMN_START + 3;
 
 let dailyRevenueModel = Object.assign(Object.create(olapModelView), {
     MAIN_URL: '/api/olap/daily-revenue',
@@ -87,6 +89,8 @@ let dailyRevenueModel = Object.assign(Object.create(olapModelView), {
         }
 
         if (cell.x >= COMMENT_COLUMN_START) return null;
+        if (cell.x >= ECOM_COLUMN_START) return '#E7DFEF';
+        if (cell.x >= SBER_COLUMN_START) return '#DEF7E0';
         if (cell.x >= CERTIFICATE_COLUMN_START) return '#EFF3DE';
         if (cell.x >= NIGHT_TIME_COLUMN_START) return '#DEEFF7';
         if (cell.x >= NOCASH_COLUMN_START) return '#E7DFEF';
