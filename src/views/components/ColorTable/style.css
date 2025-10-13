@@ -15,7 +15,7 @@ td.cell-cone.focus {
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(32, 168, 216, 0.25); }
 
-td.cell-cone:hover {
+td.clickable:hover {
 
     background-color: #fff;
     cursor: pointer;
@@ -83,4 +83,8 @@ th > div {
 
 div.tooltip-inner {
     border: 1px solid #737373;
+}
+
+.popover {
+  max-width: 80rem;
 }

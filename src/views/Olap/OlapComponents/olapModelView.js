@@ -24,7 +24,7 @@ let olapModelView = {
         return this.getData(this.MAIN_URL, filters);
     },
 
-    getData: function(url, options, cellPrefixId = 'c') {
+    getData: function(url, options, cellPrefixId = 'c', specFilter = undefined) {
         let model = this;
 
         return new Promise((resolve, reject) => {
@@ -48,6 +48,7 @@ let olapModelView = {
                                     response.data.headerColumns[xInd],
                                 dataSetOnwer: response.data,
                                 hidden: this.HIDDEN_COLS.includes(xInd),
+                                specFilter: specFilter,
                             });
                             model.cellMap.set(cell.cellId, cell);
                         });

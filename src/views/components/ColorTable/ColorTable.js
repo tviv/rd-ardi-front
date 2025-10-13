@@ -148,10 +148,11 @@ class ColorTable extends Component {
                             id={col.cellId}
                             className={
                                 'cell-cone ' +
-                                (col.row.isTotal ? 'cell-total' : '') +
+                                (col.row.isTotal ? 'cell-total ' : '') +
                                 (col.cellId && this.props.cellId === col.cellId
-                                    ? 'focus'
-                                    : '')
+                                    ? 'focus '
+                                    : '') +
+                                (col.clickProperty ? 'clickable' : '')
                             }
                             style={{
                                 background: col.background,
@@ -163,7 +164,7 @@ class ColorTable extends Component {
                                     : {}),
                             }}
                             key={col.cellId}
-                            onClick={this.handleCellClick}
+                            onClick={col.clickProperty ? this.handleCellClick : undefined}
                         >
                             {col.label}
                             {this.getTooltip(col)}
@@ -198,12 +199,13 @@ class ColorTable extends Component {
                             .map((col, index) => (
                                 <td
                                     id={col.cellId}
-                                    className={'cell-cone, cell-detail'}
+                                    className={`cell-cone cell-detail ${col.clickProperty ? 'clickable' : ''}`}
                                     style={{
                                         background: col.background,
                                         ...styles.tableCell,
                                     }}
                                     key={`dcell${rowIndex}_${index}`}
+                                    onClick={col.clickProperty ? this.handleCellClick : undefined}
                                 >
                                     {col.label}
                                     {this.getTooltip(col)}

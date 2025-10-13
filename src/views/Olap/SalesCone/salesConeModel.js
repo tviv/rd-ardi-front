@@ -69,6 +69,11 @@ let salesConeModel = Object.assign(Object.create(olapModelView), {
                     break;
             }
         });
+        data.rows.forEach(row =>
+            row.forEach(col => {
+                col.clickProperty = true;
+            })
+        );
     },
 
     getFilterOption: function(dimension) {
